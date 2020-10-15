@@ -26,23 +26,25 @@ const particlesOptions = {
   },
 };
 
+const initialState = {
+  input: '',
+  imageUrl: '',
+  box: {},
+  route: 'signin',
+  isSignedIn: false,
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    entries: 0,
+    joined: ''
+  }
+};
+
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: '',
-      imageUrl: '',
-      box: {},
-      route: 'signin',
-      isSignedIn: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    };
+    this.state = initialState;
     //console.log(app);
   }
 
@@ -73,7 +75,7 @@ class App extends Component {
       topRow: clarifaiFace.top_row * height,
       rightCol: width - (clarifaiFace.right_col * width),
       bottomRow: height - (clarifaiFace.bottom_row * height)
-    }
+    };
   }; 
 
   displayFaceBox = (box) => {
@@ -93,7 +95,9 @@ class App extends Component {
     this.setState({imageUrl: this.state.input});
 
     app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
+        /** You may have to do this:
+        * .predict(Clarifai.FACE_DETECT_MODEL, req.body.input)  **/
+      .predict('c0c0ac362b03416da06ab3fa36fb58e3', this.state.input)
       .then(response => {
         if(response) {
           fetch('http://localhost:3000/image', {
@@ -110,7 +114,8 @@ class App extends Component {
           .then(response => response.json())
           .then(count => {
             this.setState(Object.assign(this.state.user, { entries: count }));
-          });
+          })
+          .catch(console.log);
         }
         //console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
         /*  get all the infos needed from the API  */
@@ -121,7 +126,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState({isSignedIn: false});
+      this.setState(initialState);
     } else if (route === 'home') {
       this.setState({isSignedIn: true});
     } 
