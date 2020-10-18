@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
 import Navigation from './components/Navigation/Navigation';
 import SignIn from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
@@ -10,9 +9,6 @@ import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import './App.css';
 
-const app = new Clarifai.App({
-  apiKey: 'c80497c3d8c84120944582b5eeb5f7ae',
-});
 
 const particlesOptions = {
   particles: {
@@ -94,12 +90,22 @@ class App extends Component {
 
     this.setState({imageUrl: this.state.input});
 
-    app.models
-        /** You may have to do this:
-        * .predict(Clarifai.FACE_DETECT_MODEL, req.body.input)  **/
-      .predict('c0c0ac362b03416da06ab3fa36fb58e3', this.state.input)
+      /*  fetch needs a response (json)   */
+      fetch('http://localhost:3000/imageurl', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json'},
+        /** send some unique formated json data
+        *    with as object the data  we want to put
+        * here we only need the id to handle the put req 
+        **/
+        body: JSON.stringify({
+          input: this.state.input
+        })
+      })
+      .then(response => response.json())
       .then(response => {
         if(response) {
+          /*  fetch needs a response (json)   */
           fetch('http://localhost:3000/image', {
             method: 'put',
             headers: { 'Content-Type': 'application/json'},
