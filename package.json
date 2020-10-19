@@ -6,13 +6,13 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-particles-js": "^2.1.0",
-    "start": "serve -s build",
     "react-tilt": "^0.1.4",
+    "react-scripts": "3.4.3",
     "serve": "^11.3.2",
     "tachyons": "^4.9.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
