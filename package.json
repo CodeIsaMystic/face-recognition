@@ -7,9 +7,6 @@
     "react-dom": "^16.2.0",
     "react-particles-js": "^2.1.0",
     "start": "serve -s build",
-    // it used to be like this, which you can remove now:
-    // "start": "react-scripts start",
-    //"react-scripts": "^3.4.3",
     "react-tilt": "^0.1.4",
     "serve": "^11.3.2",
     "tachyons": "^4.9.0"
