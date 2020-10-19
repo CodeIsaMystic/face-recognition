@@ -26,7 +26,7 @@ class Register extends React.Component {
     /** POST request , set a 2sd param
     *     as an object of the req's properties 
     **/
-    fetch('http://localhost:3000/register', {
+    fetch('https://mysterious-meadow-18725.herokuapp.com/register', {
       method: 'post',
       headers: { 'Content-Type': 'application/json'},
       /** send some unique formated json data

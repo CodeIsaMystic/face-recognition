@@ -91,7 +91,7 @@ class App extends Component {
     this.setState({imageUrl: this.state.input});
 
       /*  fetch needs a response (json)   */
-      fetch('http://localhost:3000/imageurl', {
+      fetch('https://mysterious-meadow-18725.herokuapp.com/imageurl', {
         method: 'post',
         headers: { 'Content-Type': 'application/json'},
         /** send some unique formated json data
@@ -106,7 +106,7 @@ class App extends Component {
       .then(response => {
         if(response) {
           /*  fetch needs a response (json)   */
-          fetch('http://localhost:3000/image', {
+          fetch('https://mysterious-meadow-18725.herokuapp.com/image', {
             method: 'put',
             headers: { 'Content-Type': 'application/json'},
             /** send some unique formated json data
