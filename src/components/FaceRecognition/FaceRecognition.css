@@ -3,6 +3,7 @@
   position: absolute;
   flex-wrap: wrap;
   justify-content: center;
-  box-shadow: 0 0 0 3px #149df2 inset;
+  /* box-shadow: 0 0 0 3px #149df2 inset; */
+  box-shadow: 0 0 0 3px #F1F4EF inset;
   cursor: pointer;
 }
