@@ -1,3 +1,40 @@
+<div align="center">
+<h1>Face Recognition Single Page Application</h1>
+
+<a href="https://face-reco-jowd.herokuapp.com/">
+  <img
+    height="100"
+    width="100"
+    alt="face recog logo brain"
+    src="public/logo-brain.png"
+  />
+</a>
+
+<p>Text introducing the project...</p>
+
+<br />
+
+<a href="https://face-reco-jowd.herokuapp.com/">
+  <img
+    height="496"
+    width="960"
+    alt="screen of face recognition single page application"
+    src="public/screen-face-reco.png"
+  />
+</a>
+
+<br />
+</div>
+
+# Getting Started
+
+Intro with more details, contexts, stack...
+
+
+[Visit the website here](https://face-reco-jowd.herokuapp.com/)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
